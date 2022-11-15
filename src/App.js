@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 
-function App() {
+// import를 한번에 모아서 쓰는 방법(import 시키는 폴더에 index.js를 만들어서 import를 시킨 후 그 파일을 import 시킴)
+import { HeaderCont, MainConts, VideoConts, ChannelConts, SearchConts } from "./components/index"
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <HeaderCont />
+      <Routes>
+        <Route path='/' element={<MainConts />}></Route>
+        <Route path='/video/:id' element={<VideoConts />}></Route>
+        <Route path='/channel/:id' element={<ChannelConts />}></Route>
+        <Route path='/search/:searchKeyword' element={<SearchConts />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
