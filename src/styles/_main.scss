@@ -10,15 +10,16 @@
 
         .categoryBtn {
             margin-top: 40px;
-        
+
             button {
                 display: block;
                 font-size: 20px;
                 margin-bottom: 20px;
                 transition: all 1s;
-
-
+                height: 30px;
+                overflow: hidden;
                 cursor: pointer;
+                position: relative;
     
                 span:first-child {
                     display: inline-block;
@@ -26,15 +27,24 @@
                     vertical-align: -1px;
 
                 }
-
-                &::before {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 250px;
+                    height: 1px;
+                    border: 1px solid #fff;
+                    transition: all 0.5s;
+                    transform-origin: left;
+                    transform: scalex(0);
+                } 
+                &:hover::after {
+                    transform: scalex(1);
                 }
-
-                &:hover {
-                    text-decoration: underline;
-                    text-underline-position: under;
-
-                }
+            }   
+            button.active::after {
+                transform: scalex(1) !important;
             }
         }
 
@@ -44,7 +54,7 @@
         padding: 30px;
 
         h2 {
-            margin-bottom: 10px;
+            margin-bottom: 30px;
 
             em {
                 color: #dbb923;
@@ -54,14 +64,58 @@
 }
 
 .videos__inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
+    .box {
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255, 0.3);
+        padding-bottom: 370px;  
+        margin-bottom: 40px;
+        height: 200px;
+        display: flex;
+        
 
-    > div {
-        width: 24%;
-        margin-bottom: 1%;
-        height: 400px;
-        background: rgb(134, 52, 52);
+        .Vbox_cont {
+            width: 30%;
+            margin-right: 30px;
+
+            img {
+                width: 100%;
+            }
+
+        }
+
+        .Vbox_text {
+            font-size: 1rem;
+            width: 70%;
+            height: 325px;
+            position: relative;
+
+            h3 {
+                font-size: 1.56vw;
+                margin-bottom: 20px;
+            }
+
+            p {
+                font-size: 16px;
+                width: 80%;
+            }
+
+            .Vname {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+
+                span {
+                    display: block;
+                }
+
+                em {
+                    font-size: 14px;
+                    color: rgb(214, 214, 214);
+                }
+            }
+        }
     }
 }

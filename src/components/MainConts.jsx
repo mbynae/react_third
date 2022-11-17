@@ -5,14 +5,15 @@ import {Category, Videos} from "./";
 
 
 const MainConts = () => {
-  const [selectCategory, setSelectCategory] = useState('내셔널지오그래픽');
+  const [selectCategory, setSelectCategory] = useState('내셔널지오그래픽 동물');
   const [videos, setVideos] = useState(null);
 
   useEffect(() => {
-    fetchAPI(`search?q=national geographic animals&part=snippet%2Cid&regionCode=kr&order=date`).then((data) => 
-      console.log(data.items)
+    fetchAPI(`search?q=${selectCategory}&type=video&part=snippet%2Cid&regionCode=kr&order=date`).then((data) => 
+      // setVideos(data.items)
+      setVideos(data.items)
     )  
-  }, [])
+  }, [selectCategory])
 
   return (
     <main id="main">

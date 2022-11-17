@@ -1,5 +1,6 @@
 import React from "react";
-import {SearchBar} from './'
+import {Link} from "react-router-dom";
+import {SearchBar} from './';
 
 import { GiCrossMark } from 'react-icons/gi';
 
@@ -8,7 +9,9 @@ const HeaderCont = () => {
   return (
     <header id="header">
         <h1 className="logo">Animal survivals 
-          <GiCrossMark className="icon"/>
+          <Link to="/" className="header_link">
+              <GiCrossMark className="icon"/>
+          </Link>
         </h1>
         <SearchBar />
     </header>

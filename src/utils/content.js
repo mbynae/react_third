@@ -15,7 +15,7 @@ export const categories = [
     {name: "The Fanatic", icon: <GiAnimalHide />},
     {name: "Sleepy Cats", icon: <GiHollowCat />},
     {name: "KBS 동물의 왕국", icon: <GiFreedomDove />},
-    {name: "내셔널지오그래픽", icon: <GrMysql />},
+    {name: "내셔널지오그래픽 동물", icon: <GrMysql />},
     {name: "디스커버리 서바이벌", icon: <GrReddit />},
     {name: "SBS STORY", icon: <GiAries />},
     {name: "Scenic Relaxation", icon: <GiBalloonDog />},
