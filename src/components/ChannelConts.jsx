@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { fetchAPI } from '../utils/fetchAPI'
 import { useParams } from 'react-router-dom'
-import { Videos } from './'
+import { Videos, Loader } from './'
 
 const ChannelConts = () => {
   const [channelDetail, setChannelDetail] = useState()
@@ -12,7 +12,7 @@ const ChannelConts = () => {
     const fetchResults = async () => {
       const data = await fetchAPI(`channels?part=snippet&id=${id}`)
       setChannelDetail(data?.items[0])
-      console.log(data?.items[0])
+      // console.log(data?.items[0])
 
       const videosData = await fetchAPI(
         `search?channelId=${id}&part=snippet&order=date`
@@ -21,6 +21,8 @@ const ChannelConts = () => {
     }
     fetchResults()
   }, [id])
+
+  if (!channelDetail?.snippet) return <Loader />
 
   return (
     <section id="channelConts">

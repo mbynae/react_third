@@ -69,4 +69,15 @@
     width: 29.5%;
     height: 100%;
   }
+  .videoCont__list.searchActive {
+    width: 100%;
+
+    .result {
+      font-size: 1.3vw;
+
+      em {
+        color: #dbb923;
+      }
+    }
+  }
 }
